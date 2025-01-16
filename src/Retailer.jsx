@@ -31,8 +31,8 @@ function Retailer() {
         setProductid(product);
         setPhoneId(id);
         console.log(id);
-        axios.put(`http://localhost:7000/api/approveOrder/${phoneid}`);
-        axios.put(`http://localhost:7000/api/updatestock/${product_id}`);
+        axios.put(`https://phoneshop-backend.onrender.com/api/approveOrder/${phoneid}`);
+        axios.put(`https://phoneshop-backend.onrender.com/api/updatestock/${product_id}`);
         setTimeout(()=>{
             window.location.reload();
         },1000);
@@ -41,7 +41,7 @@ function Retailer() {
     function deleteProduct(id) {
         console.log(id);
         setPhoneId(id);
-        axios.delete(`http://localhost:7000/api/deletePro/${phoneid}`)
+        axios.delete(`https://phoneshop-backend.onrender.com/api/deletePro/${phoneid}`)
             .then(() => { console.log("Success");});
             setTimeout(()=>{
                 window.location.reload();
@@ -50,8 +50,8 @@ function Retailer() {
 
 
     function formSubmitted() {
-        axios.post("http://localhost:7000/api/setDetails", { Model_Name: model, OS: os, RAM: ram, Package_Dimensions: pack, Display_technology: disptech, Colour: color, Battery_Power: power, Item_Weight: weight, display_size: disp, memory_Capacity: memory, price: price, retailer: retail, no_of_stock: stock, URL: url });
-        axios.get(`http://localhost:7000/api/getphone/${retail}`)
+        axios.post("https://phoneshop-backend.onrender.com/api/setDetails", { Model_Name: model, OS: os, RAM: ram, Package_Dimensions: pack, Display_technology: disptech, Colour: color, Battery_Power: power, Item_Weight: weight, display_size: disp, memory_Capacity: memory, price: price, retailer: retail, no_of_stock: stock, URL: url });
+        axios.get(`https://phoneshop-backend.onrender.com/api/getphone/${retail}`)
             .then((phons) => { setPhoneList(phons.data); })
             .catch((err) => { console.log(err) });
     }
@@ -59,13 +59,13 @@ function Retailer() {
 
     useEffect(() => {
         setRetail(userData.userNameLogin);
-        axios.get(`http://localhost:7000/api/getphone/${retail}`)
+        axios.get(`https://phoneshop-backend.onrender.com/api/getphone/${retail}`)
             .then((phons) => { setPhoneList(phons.data); })
             .catch((err) => { console.log(err) });
     }, []);
     useEffect(() => {
 
-        axios.get(`http://localhost:7000/api/getorder/${retail}`)
+        axios.get(`https://phoneshop-backend.onrender.com/api/getorder/${retail}`)
             .then((phons) => { console.log(phons.data); setOrderList(phons.data); })
             .catch((err) => { console.log(err) });
     }, []);

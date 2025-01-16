@@ -52,7 +52,7 @@ function Home() {
   }
   function orderConfirmed() {
     // console.log(totalPrice);
-    axios.post('http://localhost:7000/api/orderplacing', { user: userName, orderlist: orderList });
+    axios.post('https://phoneshop-backend.onrender.com/api/orderplacing', { user: userName, orderlist: orderList });
     window.alert("Order Confirmed");
     setOrderList([]);
     setTotalPrice(0);
@@ -63,13 +63,13 @@ function Home() {
   }
   useEffect(() => {
     setUserName(userData.userNameLogin);
-    axios.get("http://localhost:7000/api/productdata")
+    axios.get("https://phoneshop-backend.onrender.com/api/productdata")
       .then((res) => { console.log(res.data); setdataArray(res.data) })
       .catch((err) => { console.log(err) });
   }, []);
   useEffect(() => {
     // console.log(userData.userNameLogin);
-    axios.get(`http://localhost:7000/api/getorder/cust/${userData.userNameLogin}`)
+    axios.get(`https://phoneshop-backend.onrender.com/api/getorder/cust/${userData.userNameLogin}`)
       .then((phons) => { setOrderPlaced(phons.data); })
       .catch((err) => { console.log(err) });
   }, []);

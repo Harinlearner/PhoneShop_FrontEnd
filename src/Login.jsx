@@ -9,7 +9,7 @@ function login() {
 
     const submitted = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:7000/api/login', { username, password }) // use same name in the back and front end or else the data will be undefined
+        axios.post('https://phoneshop-backend.onrender.com/api/login', { username, password }) // use same name in the back and front end or else the data will be undefined
             .then((res) => {
                 
                 if(res.data.length==0)
