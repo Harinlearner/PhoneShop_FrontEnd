@@ -1,0 +1,52 @@
+.loginContainer
+{
+   
+    border-radius: 30px;
+    background-color:rgb(221, 83, 14);
+    margin-top: 5%;
+    width: fit-content;
+    padding: 4%;
+}
+
+
+.label{
+    color:aliceblue;
+    font-size: large;
+}
+
+.input{
+    width:130px;
+    padding: 3px;
+    border-radius: 7px;
+}
+
+.login{
+    border-radius: 30px;
+    font-size: large;
+    width: 70px;
+    height:30px;
+}
+
+.login:hover{
+    border-radius: 30px;
+    font-size: large;
+    width: 70px;
+    height:30px;
+    color: aliceblue;
+    background-color: rgb(108, 30, 210);
+}
+
+a{
+    color: aliceblue;
+}
+
+a:hover{
+    color: chocolate;
+}
+
+option{
+    border-radius: 20px;
+}
+select{
+    border-radius: 30px;
+}

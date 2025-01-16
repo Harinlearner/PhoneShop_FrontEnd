@@ -1,0 +1,231 @@
+.container{
+    border-radius: 5%;
+    height:430px;
+    width:250px;
+    /* overflow-x: ; */
+    background-color: rgb(255, 255, 255);
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.search{
+    z-index: 3;
+    float: right;
+    margin-top: 8px;
+    margin-right: 50px;
+    position: sticky;
+    top:30px;
+}
+.phone1,.phone2{
+    padding: 5px 2px 5px 0px;
+   margin-left: 10px;
+   margin-right: 10px;
+    border-radius: 30px;
+   background-color: rgb(105, 105, 210);
+}
+.compare{
+    width:25%;
+    padding-top: 10px;
+    font-size: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    border-radius: 30px;
+    float:left;
+    background-color: rgb(151, 217, 210);
+    height:130px;
+    position: fixed;
+    top:71%;
+    right:3%;
+}
+.container:focus
+{
+    height: 400px;
+    width:230px;
+}
+.price:focus{
+    background-color: aliceblue;
+}
+.search-input{
+    border-radius: 30px;
+    font-size:20px;
+    width:110%;
+}
+.cover{
+    margin-top: -7px;
+    height:700px;
+    overflow-y: auto;
+}
+.contain{
+    /* margin-top: -8px;
+    margin-left: -8px; */
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+    overflow-y: auto;
+    /* overflow-x: hidden; */
+}
+.cover::-webkit-scrollbar{
+    background-color: rgb(255, 0, 0);
+    width:7px;
+}
+.cover::-webkit-scrollbar-track
+{
+    background-color: blue;
+    border-radius: 20px;
+    width: 3px;
+}
+.cover::-webkit-scrollbar-thumb
+{
+    background-color: rgb(251, 45, 45);
+    border-radius: 20px;
+    width: 3px;
+}
+
+
+.banner{
+    margin-top: 3px;
+    background-image: url("image.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navi{
+    height:auto;
+    width:100%;
+    background-color: black;
+    color: ghostwhite;
+}
+
+li{
+    /* background-color: black; */
+    float: right;
+    list-style-type: none;
+}
+li>button{
+    background-color: black;
+    color:aliceblue;
+    height:40px;
+    font-size: 20px;
+    padding: 0px 20px 0px 20px;
+}
+li>button:hover{
+    background-color: aliceblue;
+    color:black;
+  
+    border-radius: 20px;
+}
+.CompareButton{
+    border-radius: 30px;
+    margin-top: 10px;
+}
+.compareWindow{
+    border-style: double;
+    border-width: 10px;
+    border-radius: 40px;
+    background-color: ghostwhite;
+    width:21%;
+    padding: 25px;
+    height:80%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: fixed;
+    top: 6%;
+    right:30%;
+}
+.compareWindow::-webkit-scrollbar{
+    width:0px;
+    /* background-color: black; */
+}
+
+
+.table{
+    padding: 10px;
+   
+    border-style: double;
+    border-color: black;
+    border-radius: 40px;
+    border-width: 2px;
+}
+li{
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
+
+.td
+{
+   
+    text-align: center;
+}
+
+.price{
+    clip-path: polygon(8% 0%,95% 0%,86% 100%,20% 100%);
+    width: 90%;
+    color:gold;
+    background-color: #C32a2a;
+    transform: rotate(-40deg);
+    padding: 3px 3px 3px 3px;
+    position: relative;
+    top:79%;
+    left:28%;
+}
+.price-click{
+    clip-path: polygon(8% 0%,95% 0%,86% 100%,20% 100%);
+    width: 90%;
+    color:gold;
+    background-color: #C32a2a;
+    transform: rotate(-40deg);
+    padding: 3px 3px 3px 3px;
+    position: relative;
+    top:82%;
+    left:28%;
+}
+
+.username{
+    font-size: 30px;
+    font-family:"Lucida Handwriting";
+    color: floralwhite;
+    position: fixed;
+    top:0px;
+}
+
+.orderWindow{
+    font-size: 20px;
+    height:150px;
+    width: 20%;
+    border-radius: 30px;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: rgb(255, 255, 255);
+    position:fixed;
+    top:65%;
+    left:2%;
+}
+.orderWindow::-webkit-scrollbar{
+    width: 0px;
+}
+
+.ordertable{
+    color: rgb(0, 0, 0);
+}
+.totalprice{
+    padding:5px;
+    border-radius: 20px;
+}
+.confirm-button{
+    border-radius: 20px;
+    margin-left: 30px;
+}
+.confirm-button:hover{
+    color:antiquewhite;
+    background-color: black;
+    border-radius: 20px;
+    margin-left: 30px;
+}
+
+.orders{
+    width: 61%;
+    padding-right: 10px;
+    position:fixed;
+    top:5%;
+
+}
