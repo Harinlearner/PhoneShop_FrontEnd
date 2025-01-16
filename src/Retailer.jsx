@@ -24,7 +24,7 @@ function Retailer() {
     const [url, setUrl] = useState('');
     const [phoneid, setPhoneId] = useState('');
     const navigate = useNavigate();
-
+    const [changeOrder,setChangeOrder] = useState(false);
     const userData = JSON.parse(localStorage.getItem('userData'));
     function approveOrder(id,product)
     {
@@ -34,7 +34,8 @@ function Retailer() {
         axios.put(`https://phoneshop-backend.onrender.com/api/approveOrder/${phoneid}`);
         axios.put(`https://phoneshop-backend.onrender.com/api/updatestock/${product_id}`);
         setTimeout(()=>{
-            window.location.reload();
+            setChangeOrder(!changeOrder);
+            // navigate("/retail");
         },1000);
       
     }
@@ -44,7 +45,7 @@ function Retailer() {
         axios.delete(`https://phoneshop-backend.onrender.com/api/deletePro/${phoneid}`)
             .then(() => { console.log("Success");});
             setTimeout(()=>{
-                window.location.reload();
+                setChangeOrder(!changeOrder);
             },1000);
     }
 
@@ -64,11 +65,23 @@ function Retailer() {
             .catch((err) => { console.log(err) });
     }, []);
     useEffect(() => {
+        setRetail(userData.userNameLogin);
+        axios.get(`https://phoneshop-backend.onrender.com/api/getphone/${retail}`)
+            .then((phons) => { setPhoneList(phons.data); })
+            .catch((err) => { console.log(err) });
+    }, [changeOrder]);
+    useEffect(() => {
 
         axios.get(`https://phoneshop-backend.onrender.com/api/getorder/${retail}`)
             .then((phons) => { console.log(phons.data); setOrderList(phons.data); })
             .catch((err) => { console.log(err) });
     }, []);
+    useEffect(() => {
+        console.log("loading");
+        axios.get(`https://phoneshop-backend.onrender.com/api/getorder/${retail}`)
+            .then((phons) => { console.log(phons.data); setOrderList(phons.data); })
+            .catch((err) => { console.log(err) });
+    }, [changeOrder]);
     return (
         <div>
             {addbutton &&
