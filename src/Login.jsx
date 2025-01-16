@@ -26,7 +26,7 @@ function login() {
                 if(res.data[0].type=='User')
                 navigate1("/main");
                 else
-                navigate1("/");
+                navigate1("/retail");
                 }
             })
             // .catch((err) => { window.alert("Enter the Correct username/password") });

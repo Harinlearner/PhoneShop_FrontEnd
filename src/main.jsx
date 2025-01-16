@@ -10,7 +10,7 @@ import Login from "./Login.jsx";
 import Register  from "./Register.jsx"
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/retail",
     element: <Retailer />
   },
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
     element: <Home />
   },
   {
-    path:"/login",
+    path:"/",
     element:<Login/>
   },
   {
