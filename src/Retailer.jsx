@@ -4,7 +4,7 @@ import './Retailer.css';
 import { useNavigate } from 'react-router-dom';
 function Retailer() {
     const [order, setOrderList] = useState([]);
-    const [retail, setRetail] = useState('Apple Store');
+    const [retail, setRetail] = useState('');
     const [phone, setPhoneList] = useState([]);
     const [change, setChange] = useState(0);
     const [addbutton, setaddButton] = useState(false);
@@ -20,37 +20,37 @@ function Retailer() {
     const [memory, setMemory] = useState('');
     const [price, setPrice] = useState('');
     const [stock, setStock] = useState('');
-    const [product_id,setProductid] = useState('');
+    const [product_id, setProductid] = useState('');
     const [url, setUrl] = useState('');
     const [phoneid, setPhoneId] = useState('');
     const navigate = useNavigate();
-    const [changeOrder,setChangeOrder] = useState(false);
+    const [changeOrder, setChangeOrder] = useState(false);
     const userData = JSON.parse(localStorage.getItem('userData'));
-    function approveOrder(id,product)
-    {
+    function approveOrder(id, product) {
         setProductid(product);
         setPhoneId(id);
         console.log(id);
         axios.put(`https://phoneshop-backend.onrender.com/api/approveOrder/${phoneid}`);
         axios.put(`https://phoneshop-backend.onrender.com/api/updatestock/${product_id}`);
-        setTimeout(()=>{
+        setTimeout(() => {
             setChangeOrder(!changeOrder);
             // navigate("/retail");
-        },1000);
-      
+        }, 1000);
+
     }
     function deleteProduct(id) {
         console.log(id);
         setPhoneId(id);
         axios.delete(`https://phoneshop-backend.onrender.com/api/deletePro/${phoneid}`)
-            .then(() => { console.log("Success");});
-            setTimeout(()=>{
-                setChangeOrder(!changeOrder);
-            },1000);
+            .then(() => { console.log("Success"); });
+        setTimeout(() => {
+            setChangeOrder(!changeOrder);
+        }, 1000);
     }
 
 
     function formSubmitted() {
+        setChangeOrder(!changeOrder);
         axios.post("https://phoneshop-backend.onrender.com/api/setDetails", { Model_Name: model, OS: os, RAM: ram, Package_Dimensions: pack, Display_technology: disptech, Colour: color, Battery_Power: power, Item_Weight: weight, display_size: disp, memory_Capacity: memory, price: price, retailer: retail, no_of_stock: stock, URL: url });
         axios.get(`https://phoneshop-backend.onrender.com/api/getphone/${retail}`)
             .then((phons) => { setPhoneList(phons.data); })
@@ -60,11 +60,13 @@ function Retailer() {
 
     useEffect(() => {
         setRetail(userData.userNameLogin);
+        console.log(retail);
         axios.get(`https://phoneshop-backend.onrender.com/api/getphone/${retail}`)
             .then((phons) => { setPhoneList(phons.data); })
             .catch((err) => { console.log(err) });
     }, []);
     useEffect(() => {
+        console.log(retail);
         setRetail(userData.userNameLogin);
         axios.get(`https://phoneshop-backend.onrender.com/api/getphone/${retail}`)
             .then((phons) => { setPhoneList(phons.data); })
@@ -75,6 +77,9 @@ function Retailer() {
         axios.get(`https://phoneshop-backend.onrender.com/api/getorder/${retail}`)
             .then((phons) => { console.log(phons.data); setOrderList(phons.data); })
             .catch((err) => { console.log(err) });
+            setTimeout(() => {
+                setChangeOrder(!changeOrder);
+            }, 1000);
     }, []);
     useEffect(() => {
         console.log("loading");
@@ -83,6 +88,7 @@ function Retailer() {
             .catch((err) => { console.log(err) });
     }, [changeOrder]);
     return (
+        
         <div>
             {addbutton &&
                 <div className='form'>
@@ -145,7 +151,7 @@ function Retailer() {
             <div className='retailer-home' style={{ color: 'white' }}>
                 <div className='topBar'>Hello{", " + retail}</div>
                 <div className='phone' style={{ height: window.innerHeight - 170 }}>
-                    <div style={{fontSize:'40px'}}>Products</div>
+                    <div style={{ fontSize: '40px' }}>Products</div>
                     <button className='Add' onClick={() => { setaddButton(!addbutton); }}></button>
                     {
                         phone.map((phones) => (
@@ -166,9 +172,9 @@ function Retailer() {
 
                     }
                 </div>
-                
+
                 <div className='order' style={{ height: window.innerHeight - 170 }}>
-                <div style={{fontSize:'40px'}}>Orders</div>
+                    <div style={{ fontSize: '40px' }}>Orders</div>
                     {
                         order.map((orders) => {
                             return (
@@ -181,10 +187,10 @@ function Retailer() {
                                         <label>Price : {`₹${orders.price}`}</label>
                                         <br></br>
                                         <label>Status : </label>
-                                        {orders.status == 0 && <label style={{color:'red'}}>{`${"Pending"}`}</label>}
-                                        {orders.status == 1 && <label style={{color:'green'}}>{`${"Processed"}`}</label>}
+                                        {orders.status == 0 && <label style={{ color: 'red' }}>{`${"Pending"}`}</label>}
+                                        {orders.status == 1 && <label style={{ color: 'green' }}>{`${"Processed"}`}</label>}
                                         <br></br>
-                                        { orders.status==0 && <button className='delete' onClick={() => { approveOrder(orders._id,orders.phone_id) }}>Double Click to Proceed</button>}
+                                        {orders.status == 0 && <button className='delete' onClick={() => { approveOrder(orders._id, orders.phone_id) }}>Double Click to Proceed</button>}
                                     </div>
                                 </div>
                             );
