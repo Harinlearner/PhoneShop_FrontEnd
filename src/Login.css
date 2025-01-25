@@ -7,7 +7,19 @@
     width: fit-content;
     padding: 4%;
 }
-
+@media screen and (max-width:476px) {
+    .loginContainer
+    {
+   
+        border-radius: 30px;
+        background-color:rgb(221, 83, 14);
+        margin-top: 50%;
+        width: fit-content;
+        padding: 4%;
+        padding-bottom: 15%;
+        margin-bottom: 65%;
+    }
+}
 
 .label{
     color:aliceblue;

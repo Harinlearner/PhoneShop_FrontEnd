@@ -81,7 +81,7 @@ function Home() {
           <li><button onClick={() => {setOrders(!my_orders)}}>Orders</button></li>
           <li><button onClick={() => { setOrderList([]); setTotalPrice(0); setBuy(!buy) }}>Buy</button></li>
           <li><button onClick={() => showComp()}>Compare</button></li>
-          <li><button>Home</button></li>
+          <li><button className='homeButton'>Home</button></li>
         </nav>
       </div>
       <div className='banner' style={{ width: 'auto', height: '310px' }}></div>
@@ -199,7 +199,7 @@ function Home() {
           </div>
         }
         { my_orders && <div className='orders'>
-          <div className='order' style={{ height: window.innerHeight - 170 }}>
+          <div className='order' style={{ height: window.innerHeight - 160,paddingRight:'30px' }}>
             <div style={{ fontSize: '40px' }}>My Orders</div>
             {
               ordered.map((orders) => {

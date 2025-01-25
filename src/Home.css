@@ -229,3 +229,90 @@ li{
     top:5%;
 
 }
+
+
+/*-----------------------------compatible setting ---------------------------------------*/
+@media screen and (max-width:476px) {
+    .username{
+        font-size: 15px;
+        font-family:"Lucida Handwriting";
+        color: rgb(255, 170, 0);
+        position: fixed;
+        top:45px;
+    }
+    .search{
+        z-index: 3;
+        float: right;
+        margin-top: 8px;
+        margin-right: 50px;
+        position: sticky;
+        top:65px;
+    }
+    .navi{
+        height:auto;
+        width:100%;
+        background-color: black;
+        color: ghostwhite;
+    }
+    li{
+        /* background-color: black; */
+        float: right;
+        list-style-type: none;
+    }
+    li>button{
+        background-color: black;
+        color:aliceblue;
+        height:40px;
+        font-size: 20px;
+        padding: 0px 10px 0px 10px;
+    }
+    li>button:hover{
+        background-color: aliceblue;
+        color:black;
+    
+        border-radius: 20px;
+    }
+    .orderWindow{
+        font-size: 20px;
+        height:150px;
+        width: 70%;
+        border-radius: 30px;
+        padding: 10px;
+        overflow-y: auto;
+        background-color: rgb(196, 94, 94);
+        position:fixed;
+        top:65%;
+        left:2%;
+    }
+    .phone1,.phone2{
+        padding: 5px 2px 5px 0px;
+       margin-left: 10px;
+       margin-right: 10px;
+        border-radius: 30px;
+       background-color: rgb(105, 105, 210);
+    }
+    .compare{
+        width:65%;
+        padding-top: 30px;
+        font-size: 20px;
+        padding-bottom: 20px;
+        font-family: 'Courier New', Courier, monospace;
+        border-radius: 30px;
+        float:left;
+        background-color: rgb(151, 217, 210);
+        height:130px;
+        position: fixed;
+        top:65%;
+        right:3%;
+    }
+    .orders{
+        z-index:4;
+        width: 200%;
+        position:fixed;
+        top:5%;
+        left:-8%;
+    }
+    .order{
+        padding-right: 30px;
+    }
+}
