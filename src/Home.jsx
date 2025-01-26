@@ -78,9 +78,9 @@ function Home() {
       <div className='username'>Hi, {userName}</div>
       <div style={{ backgroundColor: 'black', width: 'auto', height: '40px' }}>
         <nav className='navi'>
-          <li><button onClick={() => {setOrders(!my_orders)}}>Orders</button></li>
-          <li><button onClick={() => { setOrderList([]); setTotalPrice(0); setBuy(!buy) }}>Buy</button></li>
-          <li><button onClick={() => showComp()}>Compare</button></li>
+          <li><button onClick={() => {setOrders(!my_orders);}}>{(my_orders)?"Close":"Orders"}</button></li>
+          <li><button onClick={() => { setOrderList([]); setTotalPrice(0); setBuy(!buy);}}>{(buy)?"Close":"Buy"}</button></li>
+          <li><button onClick={() => showComp()}>{(showCompare==0)?"Close":"Compare"}</button></li>
           <li><button className='homeButton'>Home</button></li>
         </nav>
       </div>
@@ -101,7 +101,7 @@ function Home() {
                   {model_id == phone._id && <div className='price-click'>{"₹ " + phone.price}</div>}
                   <div style={{ fontSize: "17px" }}>{phone.Model_Name}</div>
                   <div style={{ fontFamily: "Aerial", fontSize: "15px" }}>{`(${phone.RAM}GB / ${phone.memory_Capacity}GB)`}</div>
-                  <img width="150px" height="300px" src={phone.URL}></img>
+                  <img className='img' src={phone.URL}></img>
                 </button>
               }
             </center>

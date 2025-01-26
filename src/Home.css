@@ -229,10 +229,47 @@ li{
     top:5%;
 
 }
-
+.img{
+    width:150px;
+    height:300px;
+}
 
 /*-----------------------------compatible setting ---------------------------------------*/
 @media screen and (max-width:476px) {
+    .img{
+        width:100px;
+        height:200px;
+    }
+    .contain{
+        
+        /* margin-top: -8px;
+        margin-left: -8px; */
+        justify-content: center;
+        display: flex;
+        flex-wrap: wrap;
+        padding-bottom: 50px;
+        overflow-y: auto;
+        /* overflow-x: hidden; */
+    }
+    .container{
+        border-radius: 5%;
+        height:310px;
+        width:170px;
+        /* overflow-x: ; */
+        background-color: rgb(255, 255, 255);
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .container:focus
+    {
+        height:290px;
+        width:155px;
+    }
+    .cover{
+        margin-top: -7px;
+        height:auto;
+        overflow-y: auto;
+    }
     .username{
         font-size: 15px;
         font-family:"Lucida Handwriting";
