@@ -236,6 +236,26 @@ li{
 
 /*-----------------------------compatible setting ---------------------------------------*/
 @media screen and (max-width:476px) {
+    .compareWindow{
+        z-index:4;
+        border-style: double;
+        /* border-width: 10px; */
+        /* border-radius: 40px; */
+        background-color: ghostwhite;
+        width:70%;
+        padding-right:12%;
+        height:63%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: fixed;
+        top: 7%;
+        left:3%;
+    }
+    .compareWindow::-webkit-scrollbar{
+        width:0px;
+        /* background-color: black; */
+    }
+    
     .img{
         width:100px;
         height:200px;
@@ -250,6 +270,14 @@ li{
         padding-bottom: 50px;
         overflow-y: auto;
         /* overflow-x: hidden; */
+    }
+    .search{
+        z-index: 3;
+        float: right;
+        margin-top: 8px;
+        margin-right: 50px;
+        position: sticky;
+        top:30px;
     }
     .container{
         border-radius: 5%;
@@ -277,14 +305,7 @@ li{
         position: fixed;
         top:45px;
     }
-    .search{
-        z-index: 3;
-        float: right;
-        margin-top: 8px;
-        margin-right: 50px;
-        position: sticky;
-        top:65px;
-    }
+   
     .navi{
         height:auto;
         width:100%;
@@ -339,7 +360,7 @@ li{
         background-color: rgb(151, 217, 210);
         height:130px;
         position: fixed;
-        top:65%;
+        top:77%;
         right:3%;
     }
     .orders{

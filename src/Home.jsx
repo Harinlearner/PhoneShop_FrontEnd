@@ -114,7 +114,7 @@ function Home() {
             <div className='phone1'>{select1 + " "}{select1 != 'Select the Phone1' && <button style={{ borderRadius: '20px' }} onClick={() => { setSelect1('Select the Phone1'); }}>X</button>}</div>
             <div>VS</div>
             <div className='phone2'>{select2 + " "}{select2 != 'Select the Phone2' && <button style={{ borderRadius: '20px' }} onClick={() => { setSelect2('Select the Phone2'); }}>X</button>}</div>
-            <button className='CompareButton' onClick={(e) => { e.preventDefault(); setShowCompWindow(!showCompWindow); }}>{(showCompWindow == false) ? "Compare" : "Close"}</button>
+            <button className='CompareButton' onClick={(e) => { e.preventDefault();setShowCompWindow(!showCompWindow); }}>{(showCompWindow == false) ? "Compare" : "Close"}</button>
           </center>
         </div>
       }
